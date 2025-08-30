@@ -23,7 +23,7 @@ return acc;
 } , {})
 
 
-console.log(reduceOfUser);
+// console.log(reduceOfUser);
 
 
 
@@ -33,15 +33,17 @@ let categories = [
 {category: "Fruits", products: ["Apple", "Banana", "Apple"]}, 
 {category: "Vegetables", products: ["Carrot", "Apple"]}, 
 {category: "Dairy", products: ["Milk", "Cheese"]} 
-];
+]
+
+let productCounts = categories
+  .flatMap(c => c.products)   
+  .reduce((acc, product) => {
+    acc[product] = (acc[product] || 0) + 1;
+    return acc;
+  }, {});
 
 
-var flatArr = []
-categories.forEach((value , index)=>{
-flatArr.push(value.products.flat(Infinity));
-})
-
-
+console.log(productCounts);
 
 
 
