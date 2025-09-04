@@ -1,0 +1,30 @@
+.custom-btn {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 10px;
+width: 80%;
+background-color: #32c1d4;
+color: white;
+margin: 10px auto;
+text-decoration: none;
+font-weight: 500;
+font-size: 17px;
+column-gap: 5px;
+border-radius: 2px;
+transition: 0.5s ease;
+}
+
+.custom-btn i {
+margin: 0 !important;
+padding: 0 !important;
+}
+
+
+.custom-btn:hover{
+background-color: black;
+}
+
+.custom-btn:active{
+transform: scale(0.98);
+}

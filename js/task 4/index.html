@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./main.css">
-</head>
-<body>
 
+    <!-- bootstrap css -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
 
-    <div id="parent">
-      <div id="child">
-        <label for="descInput">Description</label>
-        <br />
-        <br />
-        <input type="text" id="descInput" placeholder="Enter Your Desc..." />
-        <br />
-        <br />
-        <label for="time">Time :</label>
-        <br />
-        <br />
-        <input
-          type="number"
-          id="timeInput"
-          placeholder="Enter Your Time....." />
-        <br />
-        <br />
-        <button id="btn" onclick="showInterval()">Show Result</button>
-      </div>
-      <p id="showCounter"></p>
-      <p id="showResult"></p>
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
+
+    <!-- main css -->
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body data-bs-spy="scroll">
+   
+
+  <div class="up">
+    <div class="parentOfCart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="counter">0</span>
     </div>
+  </div>
 
 
+<div class="container">
+  <div class="row g-3" id="myRow">
+ 
+
+
+
+  </div>
+
+
+  </div>
+
+
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
