@@ -39,24 +39,17 @@ myRow.innerHTML = cartona;
 
 
 displayProduct();
+
+
+
 var cartArr = [];
-
-
-
 var convertCounter;
 var countOfProduct = 0;
 function addToCart(index){
-convertCounter = Number(counter.innerText);
-counter.innerText = ++convertCounter;
-localStorage.setItem("counter" , convertCounter);
 cartArr.push(Produts[index]);
-// console.log(cartArr);
-var countInCart = Produts[index]["countInCart"] ;
-Produts[index].store = --(Produts[index].store);
-++countInCart
-Produts[index]["countInCart"] = countInCart;
-console.log(Produts[index]);
-showCart()
+var newCartArr = cartArr.find(function(product){
+  var existing = product.nameOfProduct == product[index] ? product[index] : prod
+})
 };
 
 
@@ -70,94 +63,95 @@ counter.innerText = localStorage.getItem("counter");
 
 
 
-var MyCart = document.getElementById("cartParent")
-function showCart(){
-localStorage.setItem("cartArr" , JSON.stringify(cartArr))
-console.log("hello");
-var cartona2 = "";
-for(var i = 0 ; i<cartArr.length ; i++){
-cartona2 += `
-   <div class="productInCart border bg-white border-1 border-secondary text-center p-2 rounded">
-      <img style="height:200px; object-fit:cover;" src="${cartArr[i].imageSrc}" class="w-100 " alt="">
-      <div class="priceRating  p-2 d-flex align-items-center justify-content-between">
-        <span>${cartArr[i].price}</span>
-        <span><i class="fa-solid fa-star text-warning fa-sm"></i>${cartArr[i].rating}</span>
-      </div>
-      <div class="btns d-flex  p-2  align-items-center justify-content-center column-gap-2">
-        <div class="btn btn-outline-success" onclick="increamentInCart(${i})">+</div>
-        <div class="counterInCart text-black" class="">${cartArr[i].countInCart}</div>
-        <div class="btn btn-outline-danger" onclick="decreament(${i})">-</div>
-      </div>
-    </div>
-`
-}
+// var MyCart = document.getElementById("cartParent")
+// function showCart(){
+// localStorage.setItem("cartArr" , JSON.stringify(cartArr))
+// console.log("hello");
+// var cartona2 = "";
+// for(var i = 0 ; i<cartArr.length ; i++){
+// cartona2 += `
+//    <div class="productInCart border bg-white border-1 border-secondary text-center p-2 rounded">
+//       <img style="height:200px; object-fit:cover;" src="${cartArr[i].imageSrc}" class="w-100 " alt="">
+//       <div class="priceRating  p-2 d-flex align-items-center justify-content-between">
+//         <span>${cartArr[i].price}</span>
+//         <span><i class="fa-solid fa-star text-warning fa-sm"></i>${cartArr[i].rating}</span>
+//       </div>
+//       <div class="btns d-flex  p-2  align-items-center justify-content-center column-gap-2">
+//         <div class="btn btn-outline-success" onclick="increamentInCart(${i})">+</div>
+//         <div class="counterInCart text-black" class="">${cartArr[i].countInCart}</div>
+//         <div class="btn btn-outline-danger" onclick="decreament(${i})">-</div>
+//       </div>
+//     </div>
+// `
+// }
 
-MyCart.innerHTML = cartona2;
-
-
-}
+// MyCart.innerHTML = cartona2;
 
 
-
-if(localStorage.getItem("cartArr")){
-cartArr = JSON.parse(localStorage.getItem("cartArr"));
-console.log(cartArr)
-showCart()
-}else{
-cartArr = []
-}
-
-
-localStorage.clear()
-
-
-function increamentInCart(index){
-if(cartArr[index].store > cartArr[index].countInCart){
-console.log("store bigger");
-cartArr[index].countInCart = ++(cartArr[index].countInCart);
-var cartReduce = cartArr.reduce(function(acc,item){
- acc +=item.countInCart
-
- return acc;
-} , 0);
-counter.innerText = cartReduce;
-showCart();
-localStorage.setItem("counter" , counter.innerText )
-}
-
-
-}
+// }
 
 
 
-function decreament(index){
-
-cartArr[index].countInCart = --(cartArr[index].countInCart);
-
-if(cartArr[index].countInCart <= 0){
-cartArr[index].countInCart = 0;
-var cartReduce = cartArr.reduce(function(acc,item){
- acc +=item.countInCart
-
- return acc;
-} , 0);
-console.log(cartReduce)
-counter.innerText = cartReduce;
-showCart();
-localStorage.setItem("counter" , counter.innerText)
-}
+// if(localStorage.getItem("cartArr")){
+// cartArr = JSON.parse(localStorage.getItem("cartArr"));
+// console.log(cartArr)
+// showCart()
+// }else{
+// cartArr = []
+// }
 
 
+// localStorage.clear()
 
-}
+
+// function increamentInCart(index){
+// if(cartArr[index].store > cartArr[index].countInCart){
+// console.log("store bigger");
+// cartArr[index].countInCart = ++(cartArr[index].countInCart);
+// var cartReduce = cartArr.reduce(function(acc,item){
+//  acc +=item.countInCart
+
+//  return acc;
+// } , 0);
+// counter.innerText = cartReduce;
+// showCart();
+// localStorage.setItem("counter" , counter.innerText )
+// }
 
 
+// }
+
+
+
+// function decreament(index){
+
+// cartArr[index].countInCart = --(cartArr[index].countInCart);
+
+// if(cartArr[index].countInCart <= 0){
+// cartArr[index].countInCart = 0;
+// var cartReduce = cartArr.reduce(function(acc,item){
+//  acc +=item.countInCart
+
+//  return acc;
+// } , 0);
+// console.log(cartReduce)
+// counter.innerText = cartReduce;
+// showCart();
+// localStorage.setItem("counter" , counter.innerText)
+// }
+
+
+
+// }
 
 
 
 
-if(localStorage.getItem("counter")){
-counter.innerText = localStorage.getItem("counter");
-}else{
-// counter.innerText = convertCounter;
-}
+
+
+// if(localStorage.getItem("counter")){
+// counter.innerText = localStorage.getItem("counter");
+// showCart()
+// }else{
+// counter.innerText = 0
+// }
